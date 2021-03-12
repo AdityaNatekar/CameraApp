@@ -1,0 +1,5 @@
+#!/bin/sh 
+
+export VSALPHA=1
+
+gst-launch-1.0 imxv4l2src device=/dev/video1 num-buffers=300 ! tee name=mytee ! queue ! autovideosink mytee. ! queue ! jpegenc ! avimux ! filesink location=/opt/CameraDemo.avi -e
